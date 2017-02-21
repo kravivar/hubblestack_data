@@ -2,21 +2,21 @@ grep:
   blacklist:
     legacy_passwd_entries_group:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/group:
             pattern: '^+:'
             tag: CIS-6.2.4
       description: Ensure no legacy "+" entries exist in /etc/group
     legacy_passwd_entries_passwd:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/passwd:
             pattern: '^+:'
             tag: CIS-6.2.2
       description: Ensure no legacy "+" entries exist in /etc/passwd
     legacy_passwd_entries_shadow:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/shadow:
             pattern: '^+:'
             tag: CIS-6.2.3
@@ -24,7 +24,7 @@ grep:
   whitelist:
     activate_gpg_check:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/yum.conf:
             match_output: gpgcheck=1
             pattern: gpgcheck
@@ -32,7 +32,7 @@ grep:
       description: Ensure gpgcheck is globally activated
     aide_filesystem_scans:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/cron.d:
             pattern: aide
             grep_args:
@@ -41,7 +41,7 @@ grep:
       description: Ensure filesystem integrity is regularly checked
     boot_loader_passwd:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/grub.conf:
             pattern: password
             tag: CIS-1.4.2
@@ -108,7 +108,7 @@ grep:
       description: Ensure time services are not enabled
     configure_ntp:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/ntp.conf:
             pattern: ^restrict
             match_output: default
@@ -125,7 +125,7 @@ grep:
       description: Ensure ntp is configured
     configure_chrony:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/chrony.conf:
             tag: CIS-2.2.1.3
             pattern: '^server'
@@ -135,7 +135,7 @@ grep:
       description: Ensure chrony is configured
     local_mail:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/postfix/main.cf:
             pattern: ^inet_interfaces
             match_output: localhost
@@ -143,7 +143,7 @@ grep:
       description: Ensure mail transfer agent is configured for local-only mode
     default_umask:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/bashrc:
             pattern: umask
             match_pattern: '027'
@@ -157,7 +157,7 @@ grep:
       description: Ensure default user umask is 027 or more restrictive
     disable_mount_cramfs:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/modprobe.d:
             match_output: /bin/true
             pattern: cramfs
@@ -167,7 +167,7 @@ grep:
       description: Ensure mounting of cramfs filesystems is disabled
     disable_mount_freevxfs:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/modprobe.d:
             match_output: /bin/true
             pattern: freevxfs
@@ -177,7 +177,7 @@ grep:
       description: Ensure mounting of freevxfs filesystems is disabled
     disable_mount_jffs2:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/modprobe.d:
             match_output: /bin/true
             pattern: jffs2
@@ -187,7 +187,7 @@ grep:
       description: Ensure mounting of jffs2 filesystems is disabled
     disable_mount_hfs:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/modprobe.d:
             match_output: /bin/true
             pattern: hfs
@@ -197,7 +197,7 @@ grep:
       description: Ensure mounting of hfs filesystems is disabled
     disable_mount_hfsplus:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/modprobe.d:
             match_output: /bin/true
             pattern: hfsplus
@@ -207,7 +207,7 @@ grep:
       description: Ensure mounting of hfsplus filesystems is disabled
     disable_mount_squashfs:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/modprobe.d:
             match_output: /bin/true
             pattern: squashfs
@@ -217,7 +217,7 @@ grep:
       description: Ensure mounting of squashfs filesystems is disabled
     disable_mount_udf:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/modprobe.d:
             match_output: /bin/true
             pattern: udf
@@ -227,7 +227,7 @@ grep:
       description: Ensure mounting of udf filesystems is disabled
     disable_mount_fat:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/modprobe.d:
             match_output: /bin/true
             pattern: vfat
@@ -237,7 +237,7 @@ grep:
       description: Ensure mounting of FAT filesystems is disabled
     fstab_dev_shm_partition_nodev:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/fstab:
             match_output: nodev
             pattern: /dev/shm
@@ -245,7 +245,7 @@ grep:
       description: Ensure nodev option set on /dev/shm partition
     fstab_dev_shm_partition_noexec:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/fstab:
             match_output: noexec
             pattern: /dev/shm
@@ -253,7 +253,7 @@ grep:
       description: Ensure noexec option set on /dev/shm partition
     fstab_dev_shm_partition_nosuid:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/fstab:
             match_output: nosuid
             pattern: /dev/shm
@@ -261,7 +261,7 @@ grep:
       description: Ensure nosuid option set on /dev/shm partition
     fstab_home_partition_nodev:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/fstab:
             match_output: nodev
             pattern: /home
@@ -269,7 +269,7 @@ grep:
       description: Ensure nodev option set on /home partition
     fstab_tmp_partition_nodev:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/fstab:
             match_output: nodev
             pattern: /tmp
@@ -277,7 +277,7 @@ grep:
       description: Ensure nodev option set on /tmp partition
     fstab_tmp_partition_noexec:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/fstab:
             match_output: noexec
             pattern: /tmp
@@ -285,7 +285,7 @@ grep:
       description: Ensure noexec option set on /tmp partition
     fstab_tmp_partition_nosuid:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/fstab:
             match_output: nosuid
             pattern: /tmp
@@ -293,21 +293,21 @@ grep:
       description: Ensure nosuid option set on /tmp partition
     hosts_allow:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/hosts.allow:
             pattern: ALL
             tag: CIS-3.4.2
       description: Ensure /etc/hosts.allow is configured
     hosts_deny:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/hosts.deny:
             pattern:  ALL
             tag: CIS-3.4.3
       description: Ensure /etc/hosts.deny is configured
     firewall_default_deny:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/sysconfig/iptables:
             pattern: :INPUT
             match_output: DROP
@@ -323,7 +323,7 @@ grep:
       description: Ensure default deny firewall policy
     firewall_accept_lo:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/sysconfig/iptables:
             pattern: lo
             match_output: ACCEPT
@@ -331,7 +331,7 @@ grep:
       description: Ensure loopback traffic is configured
     rsyslog_file_perms:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/rsyslog.conf:
             pattern: '^\$FileCreateMode'
             match_output: '0640'
@@ -339,14 +339,14 @@ grep:
       description: Ensure rsyslog default file permissions configured
     rsyslog_remote_logging:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/rsyslog.conf:
             pattern: ^*.*[^I][^I]*@
             tag: CIS-4.2.1.4
       description: Ensure rsyslog is configured to send logs to a remote log host
     syslog-ng_file_perms:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/syslog-ng/syslog-ng.conf:
             pattern: ^options
             match_output: 'perm(0640)'
@@ -354,7 +354,7 @@ grep:
       description: Ensure syslog-ng default file permissions configured
     limit_password_reuse:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/pam.d/system-auth:
             pattern: '"^password\s+sufficient\s+pam_unix\.so.*"'
             match_output: remember=5
@@ -364,7 +364,7 @@ grep:
       description: Ensure password reuse is limited
     password_hash:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/pam.d/password-auth:
             pattern: '"^password\s+\w+\s+pam_unix\.so"'
             match_output: sha512
@@ -374,7 +374,7 @@ grep:
       description: Ensure password hashing algorithm is SHA-512
     limit_su_command_access:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/pam.d/su:
             match_output: use_uid
             pattern: pam_wheel.so
@@ -385,7 +385,7 @@ grep:
       description: Ensure access to the su command is restricted
     pam_pwquality_try_first_pass:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/pam.d/system-auth:
             match_output: try_first_pass
             pattern: pam_pwquality.so
@@ -417,7 +417,7 @@ grep:
       description: Ensure password creation requirements are configured
     passwd_change_min_days:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/login.defs:
             match_output: '7'
             pattern: PASS_MIN_DAYS
@@ -425,7 +425,7 @@ grep:
       description: Ensure minimum days between password changes is 7 or more
     passwd_expiration_days:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/login.defs:
             match_output: '90'
             pattern: PASS_MAX_DAYS
@@ -433,7 +433,7 @@ grep:
       description: Ensure password expiration is 90 days or less
     passwd_expiry_warning:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/login.defs:
             match_output: '7'
             pattern: PASS_WARN_AGE
@@ -441,14 +441,14 @@ grep:
       description: Ensure password expiration warning days is 7 or more
     passwd_inactive:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/default/useradd:
             pattern: INACTIVE=30
             tag: CIS-5.4.1.4
       description: Ensure inactive password lock is 30 days or less
     restrict_core_dumps:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/security/limits.conf:
             match_output: '0'
             pattern: hard core
@@ -456,14 +456,14 @@ grep:
       description: Ensure core dumps are restricted
     rsyslog_remote_logging:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/rsyslog.conf:
             pattern: ^*.*[^I][^I]*@
             tag: CIS-4.2.1.4
       description: Ensure rsyslog is configured to send logs to a remote log host
     sshd_approved_cipher:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/ssh/sshd_config:
             match_output: 'aes256-ctr,aes192-ctr,aes128-ctr'
             pattern: Ciphers
@@ -471,14 +471,14 @@ grep:
       description: Ensure only approved ciphers are used
     sshd_banner:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/ssh/sshd_config:
             pattern: ^Banner
             tag: CIS-5.2.16
       description: Ensure SSH warning banner is configured
     sshd_disable_root_login:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/ssh/sshd_config:
             match_output: PermitRootLogin no
             pattern: ^PermitRootLogin
@@ -486,7 +486,7 @@ grep:
       description: Ensure SSH root login is disabled
     sshd_hostbased_auth:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/ssh/sshd_config:
             match_output: HostbasedAuthentication no
             pattern: ^HostbasedAuthentication
@@ -494,7 +494,7 @@ grep:
       description: Ensure SSH HostbasedAuthentication is disabled
     sshd_idle_timeout:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/ssh/sshd_config:
             match_output: ClientAliveInterval 300
             pattern: ^ClientAliveInterval
@@ -506,7 +506,7 @@ grep:
       description: Ensure SSH Idle Timeout Interval is configured
     sshd_gracetime:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/ssh/sshd_config:
             pattern: ^LoginGraceTime
             match_output: '60'
@@ -514,7 +514,7 @@ grep:
       description: Ensure SSH LoginGraceTime is set to one minute or less
     sshd_ignore_rhosts:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/ssh/sshd_config:
             match_output: IgnoreRhosts yes
             pattern: ^IgnoreRhosts
@@ -522,7 +522,7 @@ grep:
       description: Ensure SSH IgnoreRhosts is enabled
     sshd_limit_access:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/ssh/sshd_config:
             pattern: ^AllowUsers
             tag: CIS-5.2.15
@@ -538,7 +538,7 @@ grep:
       description: Ensure SSH access is limited
     sshd_loglevel_info:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/ssh/sshd_config:
             match_output: LogLevel INFO
             pattern: ^LogLevel
@@ -546,7 +546,7 @@ grep:
       description: Ensure SSH LogLevel is set to INFO
     sshd_max_auth_retries:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/ssh/sshd_config:
             match_output: MaxAuthTries 4
             pattern: ^MaxAuthTries
@@ -554,7 +554,7 @@ grep:
       description: Ensure SSH MaxAuthTries is set to 4 or less
     sshd_permit_empty_passwords:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/ssh/sshd_config:
             match_output: PermitEmptyPasswords no
             pattern: ^PermitEmptyPasswords
@@ -562,7 +562,7 @@ grep:
       description: Ensure SSH PermitEmptyPasswords is disabled
     sshd_permit_user_environment:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/ssh/sshd_config:
             match_output: PermitUserEnvironment no
             pattern: ^PermitUserEnvironment
@@ -570,7 +570,7 @@ grep:
       description: Ensure SSH PermitUserEnvironment is disabled
     sshd_protocol_2:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/ssh/sshd_config:
             match_output: Protocol 2
             pattern: ^Protocol
@@ -578,7 +578,7 @@ grep:
       description: Ensure SSH Protocol is set to 2
     sshd_x11_forwarding:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/ssh/sshd_config:
             match_output: X11Forwarding no
             pattern: ^X11Forwarding
@@ -586,7 +586,7 @@ grep:
       description: Ensure SSH X11 forwarding is disabled
     lockout_account:
       data:
-        *oreO*:
+        CoreO*:
         - /etc/pam.d/system-auth:
             pattern: '"^auth\s+required\s+pam_faillock\.so.*"'
             match_output: deny=5
@@ -604,32 +604,32 @@ service:
   blacklist:
     autofs:
       data:
-        *oreO*:
+        CoreO*:
         - autofs: CIS-1.1.22
       description: Disable Automounting
     rsync:
       data:
-        *oreO*:
+        CoreO*:
         - rsyncd: CIS-2.2.20
       description: Ensure rsync service is not enabled
     nfs:
       data:
-        *oreO*:
+        CoreO*:
         - nfs: CIS-2.2.7
       description: Ensure NFS and RPC are not enabled
     rpc:
       data:
-        *oreO*:
+        CoreO*:
         - rpcbind: CIS-2.2.7
       description: Ensure NFS and RPC are not enabled
     named:
       data:
-        *oreO*:
+        CoreO*:
         - named: CIS-2.2.8
       description: Ensure DNS Server is not enabled
     httpd:
       data:
-        *oreO*:
+        CoreO*:
         - httpd: CIS-2.2.10
       description: Ensure HTTP server is not enabled
     pop3_imap:
@@ -639,49 +639,49 @@ service:
       description: Ensure IMAP and POP3 server is not enabled
     samba:
       data:
-        *oreO*:
+        CoreO*:
         - smb: CIS-2.2.12
       description: Ensure Samba is not enabled
     http_proxy:
       data:
-        *oreO*:
+        CoreO*:
         - squid: CIS-2.2.13
       description: Ensure HTTP Proxy Server is not enabled
     snmp:
       data:
-        *oreO*:
+        CoreO*:
         - snmpd: CIS-2.2.14
       description: Ensure SNMP Server is not enabled
   whitelist:
     auditd_running:
       data:
-        *oreO*:
+        CoreO*:
         - auditd: CIS-4.1.1.1_running
       description: auditd should be running
     crond_running:
       data:
-        *oreO*:
+        CoreO*:
         - crond: CIS-5.1.1_running
       description: Ensure cron daemon is enabled
     iptables_running:
       data:
-        *oreO*:
+        CoreO*:
         - iptables: CIS-3.6.1_running
       description: Ensure iptables is installed
     rsyslogd_running:
       data:
-        *oreO*:
+        CoreO*:
         - rsyslog: CIS-4.2.1.1_running
       description: Ensure rsyslog Service is enabled
     syslog-ng_running:
       data:
-        *oreO*:
+        CoreO*:
         - syslog-ng: CIS-4.2.2.1_running
       description: Ensure syslog-ng service is enabled
 stat:
   at_allow:
     data:
-      *oreO*:
+      CoreO*:
       - /etc/at.allow:
           gid: 0
           group: root
@@ -692,7 +692,7 @@ stat:
     description: /etc/at.allow must be owned by root and have persmissions 600 (Scored)
   at_cron_allow:
     data:
-      *oreO*:
+      CoreO*:
       - /etc/cron.deny:
           gid: 0
           group: root
@@ -724,7 +724,7 @@ stat:
     description: Ensure at/cron is restricted to authorized users
   cron_d:
     data:
-      *oreO*:
+      CoreO*:
       - /etc/cron.d:
           gid: 0
           group: root
@@ -735,7 +735,7 @@ stat:
     description: Ensure permissions on /etc/cron.d are configured
   cron_daily:
     data:
-      *oreO*:
+      CoreO*:
       - /etc/cron.daily:
           gid: 0
           group: root
@@ -746,7 +746,7 @@ stat:
     description: Ensure permissions on /etc/cron.daily are configured
   cron_hourly:
     data:
-      *oreO*:
+      CoreO*:
       - /etc/cron.hourly:
           gid: 0
           group: root
@@ -757,7 +757,7 @@ stat:
     description: Ensure permissions on /etc/cron.hourly are configured
   cron_monthly:
     data:
-      *oreO*:
+      CoreO*:
       - /etc/cron.monthly:
           gid: 0
           group: root
@@ -768,7 +768,7 @@ stat:
     description: Ensure permissions on /etc/cron.monthly are configured
   cron_weekly:
     data:
-      *oreO*:
+      CoreO*:
       - /etc/cron.weekly:
           gid: 0
           group: root
@@ -779,7 +779,7 @@ stat:
     description: Ensure permissions on /etc/cron.weekly are configured
   crontab:
     data:
-      *oreO*:
+      CoreO*:
       - /etc/crontab:
           gid: 0
           group: root
@@ -790,7 +790,7 @@ stat:
     description: Ensure permissions on /etc/crontab are configured
   passwd_own_perm:
     data:
-      *oreO*:
+      CoreO*:
       - /etc/passwd:
           group: root
           tag: CIS-6.1.2
@@ -799,7 +799,7 @@ stat:
     description: Ensure permissions on /etc/passwd are configured
   shadow_own_perm:
     data:
-      *oreO*:
+      CoreO*:
       - /etc/shadow:
           gid: 0
           group: root
@@ -810,7 +810,7 @@ stat:
     description: Ensure permissions on /etc/shadow are configured
   group_own_perm:
     data:
-      *oreO*:
+      CoreO*:
       - /etc/group:
           gid: 0
           group: root
@@ -821,7 +821,7 @@ stat:
     description: Ensure permissions on /etc/group are configured
   gshadow_own_perm:
     data:
-      *oreO*:
+      CoreO*:
       - /etc/gshadow:
           gid: 0
           group: root
@@ -832,7 +832,7 @@ stat:
     description: Ensure permissions on /etc/gshadow are configured
   passwd-_own_perm:
     data:
-      *oreO*:
+      CoreO*:
       - /etc/passwd-:
           group: root
           tag: CIS-6.1.6
@@ -841,7 +841,7 @@ stat:
     description: Ensure permissions on /etc/passwd- are configured
   shadow-_own_perm:
     data:
-      *oreO*:
+      CoreO*:
       - /etc/shadow-:
           gid: 0
           group: root
@@ -852,7 +852,7 @@ stat:
     description: Ensure permissions on /etc/shadow- are configured
   group-_own_perm:
     data:
-      *oreO*:
+      CoreO*:
       - /etc/group-:
           gid: 0
           group: root
@@ -863,7 +863,7 @@ stat:
     description: Ensure permissions on /etc/group- are configured
   gshadow-_own_perm:
     data:
-      *oreO*:
+      CoreO*:
       - /etc/gshadow-:
           gid: 0
           group: root
@@ -874,7 +874,7 @@ stat:
     description: Ensure permissions on /etc/gshadow- are configured
   grub_conf_own_perm:
     data:
-      *oreO*:
+      CoreO*:
       - /etc/grub.conf:
           gid: 0
           group: root
@@ -885,7 +885,7 @@ stat:
     description: Ensure permissions on bootloader config are configured
   hosts_allow:
     data:
-      *oreO*:
+      CoreO*:
       - /etc/hosts.allow:
           gid: 0
           group: root
@@ -896,7 +896,7 @@ stat:
     description: Ensure permissions on /etc/hosts.allow are configured
   hosts_deny:
     data:
-      *oreO*:
+      CoreO*:
       - /etc/hosts.deny:
           gid: 0
           group: root
@@ -907,7 +907,7 @@ stat:
     description: Ensure permissions on /etc/hosts.deny are 644
   sshd_config:
     data:
-      *oreO*:
+      CoreO*:
       - /etc/ssh/sshd_config:
           gid: 0
           group: root
@@ -918,7 +918,7 @@ stat:
     description: Ensure permissions on /etc/ssh/sshd_config are configured
   warning_banner_motd:
     data:
-      *oreO*:
+      CoreO*:
       - /etc/motd:
           gid: 0
           group: root
@@ -929,7 +929,7 @@ stat:
     description: Ensure permissions on /etc/motd are configured
   warning_banner_issue:
     data:
-      *oreO*:
+      CoreO*:
       - /etc/issue:
           gid: 0
           group: root
@@ -940,7 +940,7 @@ stat:
     description: Ensure permissions on /etc/issue are configured
   warning_banner_issue.net:
     data:
-      *oreO*:
+      CoreO*:
       - /etc/issue.net:
           gid: 0
           group: root
@@ -952,14 +952,14 @@ stat:
 sysctl:
   bad_error_message_protection:
     data:
-      *oreO*:
+      CoreO*:
       - net.ipv4.icmp_ignore_bogus_error_responses:
           match_output: '1'
           tag: CIS-3.2.6
       description: Ensure bogus ICMP responses are ignored
   icmp_redirect_acceptance:
     data:
-      *oreO*:
+      CoreO*:
       - net.ipv4.conf.all.accept_redirects:
           match_output: '0'
           tag: CIS-3.2.2
@@ -969,21 +969,21 @@ sysctl:
     description: Ensure ICMP redirects are not accepted
   ignore_broadcast_requests:
     data:
-      *oreO*:
+      CoreO*:
       - net.ipv4.icmp_echo_ignore_broadcasts:
           match_output: '1'
           tag: CIS-3.2.5
     description: Ensure broadcast ICMP requests are ignored
   ip_forwarding:
     data:
-      *oreO*:
+      CoreO*:
       - net.ipv4.ip_forward:
           match_output: '0'
           tag: CIS-3.1.1
     description: Ensure IP forwarding is disabled
   log_suspicious_packets:
     data:
-      *oreO*:
+      CoreO*:
       - net.ipv4.conf.all.log_martians:
           match_output: '1'
           tag: CIS-3.2.4
@@ -993,7 +993,7 @@ sysctl:
     description: Ensure suspicious packets are logged
   ipv6_adverts:
     data:
-      *oreO*:
+      CoreO*:
       - net.ipv6.conf.all.accept_ra:
           match_output: '0'
           tag: CIS 3.3.1
@@ -1003,7 +1003,7 @@ sysctl:
     description: Ensure IPv6 router advertisements are not accepted
   ipv6_redir:
     data:
-      *oreO*:
+      CoreO*:
       - net.ipv6.conf.all.accept_redirects:
           match_output: '0'
           tag: CIS-3.3.2
@@ -1013,21 +1013,21 @@ sysctl:
     description: Ensure IPv6 redirects are not accepted
   randomize_va_space:
     data:
-      *oreO*:
+      CoreO*:
       - kernel.randomize_va_space:
           match_output: '2'
           tag: CIS-1.5.3
     description: Ensure address space layout randomization (ASLR) is enabled
   restrict_suid_core_dumps:
     data:
-      *oreO*:
+      CoreO*:
       - fs.suid_dumpable:
           match_output: '0'
           tag: CIS-1.5.1
     description: Ensure core dumps are restricted
   secure_icmp_redirect_acceptance:
     data:
-      *oreO*:
+      CoreO*:
       - net.ipv4.conf.all.secure_redirects:
           match_output: '0'
           tag: CIS-3.2.3
@@ -1037,7 +1037,7 @@ sysctl:
     description: Ensure secure ICMP redirects are not accepted
   send_packet_redirect:
     data:
-      *oreO*:
+      CoreO*:
       - net.ipv4.conf.all.send_redirects:
           match_output: '0'
           tag: CIS-3.1.2
@@ -1047,7 +1047,7 @@ sysctl:
     description: Ensure packet redirect sending is disabled
   source_routed_packet_acceptance:
     data:
-      *oreO*:
+      CoreO*:
       - net.ipv4.conf.all.accept_source_route:
           match_output: '0'
           tag: CIS-3.2.1
@@ -1057,7 +1057,7 @@ sysctl:
     description: Ensure source routed packets are not accepted
   tcp_syn_cookies:
     data:
-      *oreO*:
+      CoreO*:
       - net.ipv4.tcp_syncookies:
           match_output: '1'
           tag: CIS-3.2.8
